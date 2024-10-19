@@ -64,7 +64,9 @@ for _ in range(3):
 pyautogui.press('enter')
 
 # Step 5: Sleep for 8 seconds
-time.sleep(8)
+time.sleep(15)
+pyautogui.click(95, 84)
+time.sleep(2)
 pyautogui.click(703, 39)
 time.sleep(1)
 pyautogui.click(250, 42)
