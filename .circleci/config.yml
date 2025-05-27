@@ -6,12 +6,10 @@ orbs:
 jobs:
   train-model-1:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/python:3.9  # Use Python 3.9 image
     resource_class: medium
     steps:
       - checkout
-      - python/install-python:
-          version: "3.9"
       - python/install-packages:
           pkg-manager: pip
       - restore_cache:
@@ -42,7 +40,7 @@ workflows:
   run-model-training:
     jobs:
       - train-model-1:
-          filters:
-            branches:
-              only:
-                - main
+          filtersশ:            filters:
+              branches:
+                only:
+                  - main
