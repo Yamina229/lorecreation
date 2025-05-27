@@ -10,21 +10,11 @@ jobs:
     resource_class: medium
     steps:
       - checkout
-      - python/install-packages:
-          pkg-manager: pip
-      - restore_cache:
-          keys:
-            - v1-pip-{{ .Environment.CIRCLE_JOB }}-{{ checksum "requirements.txt" }}
-            - v1-pip-{{ .Environment.CIRCLE_JOB }}-
       - run:
           name: Install dependencies
           command: |
             pip install --upgrade pip
             pip install numpy matplotlib seaborn requests
-      - save_cache:
-          paths:
-            - ~/.cache/pip
-          key: v1-pip-{{ .Environment.CIRCLE_JOB }}-{{ checksum "requirements.txt" }}
       - run:
           name: Configure matplotlib
           command: |
