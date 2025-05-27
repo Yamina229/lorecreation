@@ -6,7 +6,7 @@ orbs:
 jobs:
   train-model-1:
     docker:
-      - image: cimg/python:3.9  # Use Python 3.9 image
+      - image: cimg/python:3.9
     resource_class: medium
     steps:
       - checkout
@@ -40,7 +40,7 @@ workflows:
   run-model-training:
     jobs:
       - train-model-1:
-          filtersশ:            filters:
-              branches:
-                only:
-                  - main
+          filters:
+            branches:
+              only:
+                - main
